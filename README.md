@@ -167,28 +167,4 @@ DataFlowX/
 ├── README.md
 ```
 
----
-
-## 🎯 Why This Project Is Different
-
-✅ Not a toy ETL
-✅ Uses real orchestration
-✅ Uses modern lakehouse patterns
-✅ Storage-first design
-✅ Analytics-ready outputs
-✅ Interview-explainable architecture
-
-This project mirrors how data platforms are built in **real production environments**.
-
----
-
-## 🔮 Possible Extensions
-
-* Data quality checks (row counts, nulls)
-* Schema evolution handling
-* Slowly Changing Dimensions (SCD)
-* BI dashboard (Superset / Metabase)
-* CI for DAG validation
-
----
 
