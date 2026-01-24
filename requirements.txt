@@ -1,0 +1,7 @@
+apache-airflow==2.8.1
+psycopg2-binary
+requests
+pandas
+pyarrow
+great-expectations
+duckdb
