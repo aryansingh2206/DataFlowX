@@ -63,3 +63,31 @@ services:
 volumes:
   postgres_data:
   minio_data:
+
+superset:
+    image: apache/superset:3.0.0
+    container_name: lakeforge_superset
+    ports:
+      - "8088:8088"
+    environment:
+      SUPERSET_SECRET_KEY: "lakeforge_secret_key"
+    volumes:
+      - superset_home:/app/superset_home
+    depends_on:
+      - postgres
+    command: >
+      bash -c "
+      superset db upgrade &&
+      superset fab create-admin
+        --username admin
+        --password admin
+        --firstname Admin
+        --lastname User
+        --email admin@lakeforge.io &&
+      superset init &&
+      superset run -p 8088 --with-threads --reload --debugger
+      "
+
+volumes:
+  superset_home:
+

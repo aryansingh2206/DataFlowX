@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: fact_user_metrics
+    description: "Daily aggregated user metrics by country"
+    columns:
+      - name: country
+        tests:
+          - not_null
+      - name: total_users
+        tests:
+          - not_null

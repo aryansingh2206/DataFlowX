@@ -1,0 +1,17 @@
+name: "lakeforge"
+version: "1.0"
+config-version: 2
+
+profile: "lakeforge"
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+models:
+  lakeforge:
+    silver:
+      materialized: view
+    gold:
+      materialized: table

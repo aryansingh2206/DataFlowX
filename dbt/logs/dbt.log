@@ -1,0 +1,263 @@
+[0m14:20:17.823380 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015627569E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015627569050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015627508D90>]}
+
+
+============================== 14:20:17.828084 | 1f499ef3-1d9d-47d3-abd7-81a296f85a9a ==============================
+[0m14:20:17.828084 [info ] [MainThread]: Running with dbt=1.11.2
+[0m14:20:17.829784 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'invocation_command': 'dbt test --profiles-dir .', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\aryan\\DataFlowX\\dbt\\logs'}
+[0m14:20:18.243943 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '1f499ef3-1d9d-47d3-abd7-81a296f85a9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000156286E2B50>]}
+[0m14:20:18.306061 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '1f499ef3-1d9d-47d3-abd7-81a296f85a9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015623D884D0>]}
+[0m14:20:18.308064 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m14:20:18.619932 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m14:20:18.622766 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m14:20:18.623379 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '1f499ef3-1d9d-47d3-abd7-81a296f85a9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001562865C450>]}
+[0m14:20:19.927733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '1f499ef3-1d9d-47d3-abd7-81a296f85a9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015628BAD5D0>]}
+[0m14:20:19.994631 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\aryan\DataFlowX\dbt\target\manifest.json
+[0m14:20:19.997236 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\aryan\DataFlowX\dbt\target\semantic_manifest.json
+[0m14:20:20.024117 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '1f499ef3-1d9d-47d3-abd7-81a296f85a9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015628FD92D0>]}
+[0m14:20:20.025103 [info ] [MainThread]: Found 2 models, 2 data tests, 472 macros
+[0m14:20:20.026797 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1f499ef3-1d9d-47d3-abd7-81a296f85a9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015628FC34D0>]}
+[0m14:20:20.029910 [info ] [MainThread]: 
+[0m14:20:20.030803 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:20:20.031805 [info ] [MainThread]: 
+[0m14:20:20.033313 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:20:20.040328 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_lakeforge_main'
+[0m14:20:20.178518 [debug] [ThreadPool]: Using duckdb connection "list_lakeforge_main"
+[0m14:20:20.178518 [debug] [ThreadPool]: On list_lakeforge_main: BEGIN
+[0m14:20:20.179524 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:20:21.030683 [debug] [ThreadPool]: SQL status: OK in 0.852 seconds
+[0m14:20:21.032188 [debug] [ThreadPool]: Using duckdb connection "list_lakeforge_main"
+[0m14:20:21.033194 [debug] [ThreadPool]: On list_lakeforge_main: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lakeforge", "target_name": "dev", "connection_name": "list_lakeforge_main"} */
+select
+      'lakeforge' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'lakeforge'
+  
+[0m14:20:21.063003 [debug] [ThreadPool]: SQL status: OK in 0.029 seconds
+[0m14:20:21.064246 [debug] [ThreadPool]: On list_lakeforge_main: ROLLBACK
+[0m14:20:21.065766 [debug] [ThreadPool]: Failed to rollback 'list_lakeforge_main'
+[0m14:20:21.065766 [debug] [ThreadPool]: On list_lakeforge_main: Close
+[0m14:20:21.067166 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1f499ef3-1d9d-47d3-abd7-81a296f85a9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000156289A2050>]}
+[0m14:20:21.067166 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:20:21.068184 [debug] [MainThread]: On master: BEGIN
+[0m14:20:21.068184 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:20:21.070175 [debug] [MainThread]: SQL status: OK in 0.002 seconds
+[0m14:20:21.070175 [debug] [MainThread]: On master: COMMIT
+[0m14:20:21.071264 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:20:21.071264 [debug] [MainThread]: On master: COMMIT
+[0m14:20:21.072233 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:20:21.072233 [debug] [MainThread]: On master: Close
+[0m14:20:21.079411 [debug] [Thread-1 (]: Began running node test.lakeforge.not_null_fact_user_metrics_country.f3363915c3
+[0m14:20:21.080413 [debug] [Thread-2 (]: Began running node test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675
+[0m14:20:21.081415 [info ] [Thread-1 (]: 1 of 2 START test not_null_fact_user_metrics_country ........................... [RUN]
+[0m14:20:21.081415 [info ] [Thread-2 (]: 2 of 2 START test not_null_fact_user_metrics_total_users ....................... [RUN]
+[0m14:20:21.082413 [debug] [Thread-1 (]: Acquiring new duckdb connection 'test.lakeforge.not_null_fact_user_metrics_country.f3363915c3'
+[0m14:20:21.083554 [debug] [Thread-2 (]: Acquiring new duckdb connection 'test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675'
+[0m14:20:21.084560 [debug] [Thread-1 (]: Began compiling node test.lakeforge.not_null_fact_user_metrics_country.f3363915c3
+[0m14:20:21.084951 [debug] [Thread-2 (]: Began compiling node test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675
+[0m14:20:21.101636 [debug] [Thread-1 (]: Writing injected SQL for node "test.lakeforge.not_null_fact_user_metrics_country.f3363915c3"
+[0m14:20:21.107816 [debug] [Thread-2 (]: Writing injected SQL for node "test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675"
+[0m14:20:21.112747 [debug] [Thread-1 (]: Began executing node test.lakeforge.not_null_fact_user_metrics_country.f3363915c3
+[0m14:20:21.112747 [debug] [Thread-2 (]: Began executing node test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675
+[0m14:20:21.138000 [debug] [Thread-1 (]: Writing runtime sql for node "test.lakeforge.not_null_fact_user_metrics_country.f3363915c3"
+[0m14:20:21.141004 [debug] [Thread-2 (]: Writing runtime sql for node "test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675"
+[0m14:20:21.143999 [debug] [Thread-1 (]: Using duckdb connection "test.lakeforge.not_null_fact_user_metrics_country.f3363915c3"
+[0m14:20:21.143999 [debug] [Thread-2 (]: Using duckdb connection "test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675"
+[0m14:20:21.145511 [debug] [Thread-1 (]: On test.lakeforge.not_null_fact_user_metrics_country.f3363915c3: BEGIN
+[0m14:20:21.146525 [debug] [Thread-2 (]: On test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675: BEGIN
+[0m14:20:21.146525 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:20:21.147521 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m14:20:21.150521 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m14:20:21.151522 [debug] [Thread-1 (]: Using duckdb connection "test.lakeforge.not_null_fact_user_metrics_country.f3363915c3"
+[0m14:20:21.152521 [debug] [Thread-1 (]: On test.lakeforge.not_null_fact_user_metrics_country.f3363915c3: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lakeforge", "target_name": "dev", "node_id": "test.lakeforge.not_null_fact_user_metrics_country.f3363915c3"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select country
+from "lakeforge"."main"."fact_user_metrics"
+where country is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:20:21.154523 [debug] [Thread-2 (]: SQL status: OK in 0.007 seconds
+[0m14:20:21.154523 [debug] [Thread-2 (]: Using duckdb connection "test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675"
+[0m14:20:21.154523 [debug] [Thread-2 (]: On test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lakeforge", "target_name": "dev", "node_id": "test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select total_users
+from "lakeforge"."main"."fact_user_metrics"
+where total_users is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:20:21.162561 [debug] [Thread-2 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lakeforge", "target_name": "dev", "node_id": "test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select total_users
+from "lakeforge"."main"."fact_user_metrics"
+where total_users is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:20:21.163564 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "lakeforge", "target_name": "dev", "node_id": "test.lakeforge.not_null_fact_user_metrics_country.f3363915c3"} */
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select country
+from "lakeforge"."main"."fact_user_metrics"
+where country is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m14:20:21.164561 [debug] [Thread-2 (]: DuckDB adapter: Rolling back transaction.
+[0m14:20:21.165562 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m14:20:21.166560 [debug] [Thread-2 (]: On test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675: ROLLBACK
+[0m14:20:21.167070 [debug] [Thread-1 (]: On test.lakeforge.not_null_fact_user_metrics_country.f3363915c3: ROLLBACK
+[0m14:20:21.176075 [debug] [Thread-1 (]: Failed to rollback 'test.lakeforge.not_null_fact_user_metrics_country.f3363915c3'
+[0m14:20:21.177577 [debug] [Thread-2 (]: Failed to rollback 'test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675'
+[0m14:20:21.177577 [debug] [Thread-1 (]: On test.lakeforge.not_null_fact_user_metrics_country.f3363915c3: Close
+[0m14:20:21.178584 [debug] [Thread-2 (]: On test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675: Close
+[0m14:20:21.182585 [debug] [Thread-1 (]: Runtime Error in test not_null_fact_user_metrics_country (models\gold\fact_user_metrics.yml)
+  Catalog Error: Table with name fact_user_metrics does not exist!
+  Did you mean "information_schema.character_sets"?
+  
+  LINE 17: from "lakeforge"."main"."fact_user_metrics"
+                ^
+[0m14:20:21.183583 [error] [Thread-1 (]: 1 of 2 ERROR not_null_fact_user_metrics_country ................................ [[31mERROR[0m in 0.10s]
+[0m14:20:21.185587 [debug] [Thread-1 (]: Finished running node test.lakeforge.not_null_fact_user_metrics_country.f3363915c3
+[0m14:20:21.186584 [debug] [Thread-7 (]: Marking all children of 'test.lakeforge.not_null_fact_user_metrics_country.f3363915c3' to be skipped because of status 'error'.  Reason: Runtime Error in test not_null_fact_user_metrics_country (models\gold\fact_user_metrics.yml)
+  Catalog Error: Table with name fact_user_metrics does not exist!
+  Did you mean "information_schema.character_sets"?
+  
+  LINE 17: from "lakeforge"."main"."fact_user_metrics"
+                ^.
+[0m14:20:21.187591 [debug] [Thread-2 (]: Runtime Error in test not_null_fact_user_metrics_total_users (models\gold\fact_user_metrics.yml)
+  Catalog Error: Table with name fact_user_metrics does not exist!
+  Did you mean "information_schema.character_sets"?
+  
+  LINE 17: from "lakeforge"."main"."fact_user_metrics"
+                ^
+[0m14:20:21.188655 [error] [Thread-2 (]: 2 of 2 ERROR not_null_fact_user_metrics_total_users ............................ [[31mERROR[0m in 0.11s]
+[0m14:20:21.189648 [debug] [Thread-2 (]: Finished running node test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675
+[0m14:20:21.191155 [debug] [Thread-7 (]: Marking all children of 'test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675' to be skipped because of status 'error'.  Reason: Runtime Error in test not_null_fact_user_metrics_total_users (models\gold\fact_user_metrics.yml)
+  Catalog Error: Table with name fact_user_metrics does not exist!
+  Did you mean "information_schema.character_sets"?
+  
+  LINE 17: from "lakeforge"."main"."fact_user_metrics"
+                ^.
+[0m14:20:21.193436 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:20:21.193993 [debug] [MainThread]: On master: BEGIN
+[0m14:20:21.194568 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:20:21.197406 [debug] [MainThread]: SQL status: OK in 0.003 seconds
+[0m14:20:21.199006 [debug] [MainThread]: On master: COMMIT
+[0m14:20:21.199599 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:20:21.200194 [debug] [MainThread]: On master: COMMIT
+[0m14:20:21.201388 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:20:21.201950 [debug] [MainThread]: On master: Close
+[0m14:20:21.202567 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:20:21.203087 [debug] [MainThread]: Connection 'list_lakeforge_main' was properly closed.
+[0m14:20:21.203087 [debug] [MainThread]: Connection 'test.lakeforge.not_null_fact_user_metrics_country.f3363915c3' was properly closed.
+[0m14:20:21.203625 [debug] [MainThread]: Connection 'test.lakeforge.not_null_fact_user_metrics_total_users.cb6aa2c675' was properly closed.
+[0m14:20:21.204759 [info ] [MainThread]: 
+[0m14:20:21.206002 [info ] [MainThread]: Finished running 2 data tests in 0 hours 0 minutes and 1.17 seconds (1.17s).
+[0m14:20:21.207699 [debug] [MainThread]: Command end result
+[0m14:20:21.233911 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\aryan\DataFlowX\dbt\target\manifest.json
+[0m14:20:21.236249 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\aryan\DataFlowX\dbt\target\semantic_manifest.json
+[0m14:20:21.242618 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\aryan\DataFlowX\dbt\target\run_results.json
+[0m14:20:21.243603 [info ] [MainThread]: 
+[0m14:20:21.244601 [info ] [MainThread]: [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[0m14:20:21.245604 [info ] [MainThread]: 
+[0m14:20:21.246604 [error] [MainThread]: [31mFailure in test not_null_fact_user_metrics_country (models\gold\fact_user_metrics.yml)[0m
+[0m14:20:21.246604 [error] [MainThread]:   Runtime Error in test not_null_fact_user_metrics_country (models\gold\fact_user_metrics.yml)
+  Catalog Error: Table with name fact_user_metrics does not exist!
+  Did you mean "information_schema.character_sets"?
+  
+  LINE 17: from "lakeforge"."main"."fact_user_metrics"
+                ^
+[0m14:20:21.247602 [info ] [MainThread]: 
+[0m14:20:21.247602 [info ] [MainThread]:   compiled code at target\compiled\lakeforge\models\gold\fact_user_metrics.yml\not_null_fact_user_metrics_country.sql
+[0m14:20:21.249108 [info ] [MainThread]: 
+[0m14:20:21.250116 [error] [MainThread]: [31mFailure in test not_null_fact_user_metrics_total_users (models\gold\fact_user_metrics.yml)[0m
+[0m14:20:21.250116 [error] [MainThread]:   Runtime Error in test not_null_fact_user_metrics_total_users (models\gold\fact_user_metrics.yml)
+  Catalog Error: Table with name fact_user_metrics does not exist!
+  Did you mean "information_schema.character_sets"?
+  
+  LINE 17: from "lakeforge"."main"."fact_user_metrics"
+                ^
+[0m14:20:21.251119 [info ] [MainThread]: 
+[0m14:20:21.252114 [info ] [MainThread]:   compiled code at target\compiled\lakeforge\models\gold\fact_user_metrics.yml\not_null_fact_user_metrics_total_users.sql
+[0m14:20:21.252333 [info ] [MainThread]: 
+[0m14:20:21.252333 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=2 SKIP=0 NO-OP=0 TOTAL=2
+[0m14:20:21.254348 [debug] [MainThread]: Command `dbt test` failed at 14:20:21.253347 after 3.52 seconds
+[0m14:20:21.254348 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015620A34750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015627509550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001562750BE50>]}
+[0m14:20:21.255343 [debug] [MainThread]: Flushing usage events
+[0m14:20:22.309771 [debug] [MainThread]: An error was encountered while trying to flush usage events
