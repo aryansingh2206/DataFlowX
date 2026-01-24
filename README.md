@@ -1,5 +1,5 @@
 
-#  DataFlowX — End-to-End Modern Data Platform (Bronze → Silver → Gold)
+#  DataFlowX —> End-to-End Modern Data Platform (Bronze → Silver → Gold)
 
 DataFlowX is a **production-style data engineering project** that simulates how real-world analytics platforms ingest, transform, and serve data at scale using modern tools and best practices.
 
