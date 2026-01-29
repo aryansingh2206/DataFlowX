@@ -1,5 +1,5 @@
 
-# 🏗️ LakeForge — Cloud-Native Lakehouse Platform
+# 🏗️ LakeForge —> Cloud-Native Lakehouse Platform
 
 LakeForge is an **end-to-end, production-style lakehouse analytics platform** built entirely on **open-source and free technologies**.
 It implements a **modern Bronze → Silver → Gold architecture**, supporting scalable ingestion, transformations, analytics, and BI — closely mirroring real-world data platforms used in industry.
