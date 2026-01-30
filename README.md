@@ -1,14 +1,14 @@
 
-# 🏗️ LakeForge —> Cloud-Native Lakehouse Platform
+#  LakeForge —> Cloud-Native Lakehouse Platform
 
 LakeForge is an **end-to-end, production-style lakehouse analytics platform** built entirely on **open-source and free technologies**.
 It implements a **modern Bronze → Silver → Gold architecture**, supporting scalable ingestion, transformations, analytics, and BI — closely mirroring real-world data platforms used in industry.
 
-> 🎯 **Goal:** Demonstrate how to design, orchestrate, govern, and query a modern lakehouse using decoupled storage and compute.
+>  **Goal:** Demonstrate how to design, orchestrate, govern, and query a modern lakehouse using decoupled storage and compute.
 
 ---
 
-## 🚀 Key Capabilities
+##  Key Capabilities
 
 * End-to-end **lakehouse architecture** (Bronze / Silver / Gold)
 * S3-compatible object storage with **Parquet + Iceberg**
@@ -23,7 +23,7 @@ It implements a **modern Bronze → Silver → Gold architecture**, supporting s
 
 ---
 
-## 🧱 High-Level Architecture
+##  High-Level Architecture
 
 ```
 Data Sources
@@ -52,7 +52,7 @@ Analytics / BI / SQL
 
 ---
 
-## 🧰 Tech Stack (Final)
+##  Tech Stack (Final)
 
 ### 🔹 Data Sources
 
@@ -166,7 +166,7 @@ lakeforge/
 
 ---
 
-## 🔄 Data Flow Example
+##  Data Flow Example
 
 1. **PostgreSQL → Bronze**
 
@@ -202,7 +202,7 @@ lakeforge/
 
 ---
 
-## 📊 Example Analytics Use Cases
+##  Example Analytics Use Cases
 
 * Daily active users
 * User distribution by country
